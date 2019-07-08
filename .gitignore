@@ -1,0 +1,9 @@
+__pycache__/
+venv/
+.vscode/
+database.db
+setup.sublime-workspace
+clientapp/imagestore/*
+alembic.ini
+*.bat
+settings.py
