@@ -13,9 +13,6 @@ logging.getLogger().setLevel(logging.DEBUG)
 
 log = logging.getLogger(__name__)
 
-# env = os.environ.get('APP_ENV', 'dev')
-# app = create_app('settings.%sConfig' % env.capitalize())
-
 app = create_app(DevConfig)
 app.app_context().push()
 
