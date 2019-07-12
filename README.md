@@ -18,7 +18,7 @@ How to run:
 
 * Make sure Python 3.6+ and Git is installed on your PC
 * Download app into a folder on your PC with:
-`git clone https://DanieCornelius@bitbucket.org/DanieCornelius/tdb.git`
+`https://github.com/lupusmagist/Basic-Flask-with-auth.git`
 
 Open a command prompt and change directory into that folder.
 
