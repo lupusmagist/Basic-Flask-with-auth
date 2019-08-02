@@ -17,10 +17,10 @@ class User(db.Model):
     roles = db.relationship(
         'Role',
         secondary=roles,
-        backref=db.backref('users', lazy='dynamic')
-    )
+        backref=db.backref('users', lazy='dynamic'))
 
     def __init__(self, username, password):
+        # default role is 'user' and it added automaticly
         default = Role.query.filter_by(name="user").one()
         self.roles.append(default)
         self.username = username

@@ -1,0 +1,4 @@
+[
+  "tests/test_db.py::test_role_schema1",
+  "tests/test_db.py::test_user_schema1"
+]
