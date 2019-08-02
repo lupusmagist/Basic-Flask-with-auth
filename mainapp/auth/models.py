@@ -1,5 +1,5 @@
-from . import bcrypt, AnonymousUserMixin
 from .. import db
+from . import AnonymousUserMixin
 
 roles = db.Table(
     'role_users',
@@ -32,14 +32,24 @@ class User(db.Model):
                 return True
         return False
 
+    # Methods for loginmanager/flask-user
+    @property
     def is_authenticated(self):
-        return True
+        if isinstance(self, AnonymousUserMixin):
+            return False
+        else:
+            return True
 
+    @property
     def is_active(self):
         return True
 
+    @property
     def is_anonymous(self):
-        return False
+        if isinstance(self, AnonymousUserMixin):
+            return True
+        else:
+            return False
 
     def get_id(self):
         return str(self.id)
@@ -67,27 +77,6 @@ class User(db.Model):
 
     def check_password(self, password):
         return bcrypt.check_password_hash(self.password, password)
-
-    @property
-    def is_authenticated(self):
-        if isinstance(self, AnonymousUserMixin):
-            return False
-        else:
-            return True
-
-    @property
-    def is_active(self):
-        return True
-
-    @property
-    def is_anonymous(self):
-        if isinstance(self, AnonymousUserMixin):
-            return True
-        else:
-            return False
-
-    def get_id(self):
-        return str(self.id)
     '''
 
 

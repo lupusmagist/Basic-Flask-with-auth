@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, flash, redirect, url_for, \
     request, session
-from flask_login import login_user
+from flask_login import login_user, login_required
 from ..auth.forms import LoginForm
 from ..auth.models import User
 # from ..auth import has_role
@@ -15,6 +15,7 @@ def make_session_permanent():
 
 
 @main_blueprint.route('/', methods=['GET', 'POST'])
+@login_required
 def index():
     form = LoginForm(request.form)
 

@@ -1,0 +1,27 @@
+<!doctype html>
+
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}{% endblock %} Basic UI Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link type="text/css" href="{{ url_for('static', filename='main/bootstrap.min.css') }}" rel="stylesheet">
+
+    {% endblock %}
+</head>
+
+<body>
+    <form method="POST" action="/auth/login">
+        {{ form.csrf_token }}
+        {{ form.username.label }} {{ form.username(size=20) }}
+        {{ form.password.label }} {{ form.password(size=20) }}
+        <input type="submit" value="Go">
+    </form>
+
+</body>
+
+</html>

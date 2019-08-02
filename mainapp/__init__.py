@@ -24,7 +24,7 @@ def create_app(object_name):
     # Register blueprints
     from .main.views import main_blueprint
     app.register_blueprint(main_blueprint)
-    app.add_url_rule('/', endpoint='index')
+    app.add_url_rule('/', endpoint='main.index')
 
     from .admin.views import admin_blueprint
     app.register_blueprint(admin_blueprint)
